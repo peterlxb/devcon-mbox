@@ -5,6 +5,15 @@ const bodyParser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 5000;
 
+//Body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Require basic routes
+const users = require("./routes/api/users");
+const profile = require("./routes/api/profile");
+const posts = require("./routes/api/posts");
+
 //DB config
 const db = require("./config/keys").mongoURI;
 
@@ -15,5 +24,10 @@ mongoose
     console.log("mongo conncted");
   })
   .catch(err => console.log(err));
+
+//Use Routes middleware
+app.use("/api/users", users);
+app.use("/api/profile", profile);
+app.use("/api/posts", posts);
 
 app.listen(port, () => console.log(`Server Running on port ${port}`));
