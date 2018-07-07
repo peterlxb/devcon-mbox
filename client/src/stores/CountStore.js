@@ -1,13 +1,13 @@
-import { observable, autorun } from "mobx";
+import { observable, action } from "mobx";
 
-const counterState = observable({
+const countStore = observable({
   value: 0,
   inc: function() {
-    counterState.value++;
+    countStore.value++;
   },
   dec: function() {
-    counterState.value--;
+    countStore.value--;
   }
 });
 
-export default counterState;
+export default countStore;

@@ -1,11 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import { Provider } from "mobx-react";
+import { BrowserRouter } from "react-router-dom";
 import App from "./components/App";
-import counterState from "./stores/CountStore";
+import countStore from "./stores/CountStore";
 
 ReactDOM.render(
-  <App state={counterState} />,
-
+  <BrowserRouter>
+    <App state={countStore} />
+  </BrowserRouter>,
   document.getElementById("root")
 );
+
+if (module.hot) {
+  module.hot.accept();
+}
