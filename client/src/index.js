@@ -5,6 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./components/App";
 import countStore from "./stores/CountStore";
 
+import "../styles/index.scss";
+
 ReactDOM.render(
   <BrowserRouter>
     <App state={countStore} />
