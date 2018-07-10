@@ -6,6 +6,10 @@ import Navbar from "./layout/Navbar";
 import Landing from "./layout/Landing";
 import Footer from "./layout/Footer";
 
+//auth
+import Register from "./auth/Register";
+import Login from "./auth/Login";
+
 class App extends Component {
   render() {
     return (
@@ -13,6 +17,10 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Route exact path="/" component={Landing} />
+          <div className="container">
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+          </div>
           <Footer />
         </div>
       </Router>
