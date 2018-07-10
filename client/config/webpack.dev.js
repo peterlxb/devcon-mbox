@@ -47,27 +47,23 @@ module.exports = {
           }
         ]
       },
-
       {
         test: /\.html$/,
         use: [
-          // {
-          //   loader: "file-loader",
-          //   options: {
-          //     name: "[name].html"
-          //   }
-          // },
-          // {
-          //   loader: "extract-loader",
-          //   options: {
-          //     publicPath: "../"
-          //   }
-          // },
           {
-            loader: "html-loader",
+            loader: "file-loader",
             options: {
-              attr: ["img:src"]
+              name: "[name].[ext]"
             }
+          },
+          {
+            loader: "extract-loader",
+            options: {
+              publicPath: "../"
+            }
+          },
+          {
+            loader: "html-loader"
           }
         ]
       },
@@ -84,10 +80,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: "./src/index.html"
-    })
-  ]
+  plugins: [new webpack.HotModuleReplacementPlugin()]
 };

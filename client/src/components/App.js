@@ -1,14 +1,21 @@
 import React, { Component } from "react";
-import Counter from "./Counter";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+//layout
+import Navbar from "./layout/Navbar";
+import Landing from "./layout/Landing";
+import Footer from "./layout/Footer";
 
 class App extends Component {
   render() {
-    console.log(this.props.state);
     return (
-      <div className="App">
-        <h1>MobX</h1>
-        <Counter state={this.props.state} />
-      </div>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Route exact path="/" component={Landing} />
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
