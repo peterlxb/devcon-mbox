@@ -1,16 +1,5 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "browsers": ["last 2 versions"]
-        },
-        "debug": false
-      }
-    ],
-    "babel-preset-react"
-  ],
+  "presets": ["react", "es2015", "stage-2"],
   "plugins": [
     "transform-decorators-legacy",
     "transform-runtime",

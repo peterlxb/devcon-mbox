@@ -1,3 +1,3 @@
-import countStore from "./CountStore";
+import authStore from "./AuthStore";
 
-export { countStore };
+export { authStore };

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { observer } from "mobx-react";
 
 import PropTypes from "prop-types";
 
 import TextFieldGroup from "../common/TextFieldGroup";
 
+@observer
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -12,8 +14,8 @@ class Login extends Component {
       password: "",
       errors: {}
     };
-    // this.onChange = this.onChange.bind(this);
-    // this.onSubmit = this.onSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -26,14 +28,14 @@ class Login extends Component {
   // }
 
   // componentDidMount() {
-  //   if (this.props.auth.isAuthenticated) {
+  //   if (this.props.authStore.isAuthenticated) {
   //     this.props.history.push("/dashboard");
   //   }
   // }
 
-  // componentDidUpdate() {
-  //   console.log("Register compoment, componentDidupdate");
-  // }
+  componentDidUpdate() {
+    console.log("Register compoment, componentDidupdate");
+  }
 
   onChange(e) {
     this.setState({
@@ -49,13 +51,14 @@ class Login extends Component {
       password: this.state.password
     };
 
-    // console.log(userData);
-    // this.props.loginUser(userData, this.props.history);
+    console.log(this.props.authStore.loginUser);
+    this.props.authStore.loginUser(userData);
   }
 
   render() {
     const { errors } = this.state;
-
+    const { authStore } = this.props;
+    console.log(this.props);
     return (
       <div className="login">
         <div className="container">
@@ -92,11 +95,11 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = {
-  loginUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  errors: PropTypes.object
-};
+// Login.propTypes = {
+//   loginUser: PropTypes.func.isRequired,
+//   auth: PropTypes.object.isRequired,
+//   errors: PropTypes.object
+// };
 
 // const mapStateToProps = state => {
 //   return {
