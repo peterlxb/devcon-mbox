@@ -66,6 +66,7 @@ router.post("/register", (req, res) => {
 //@desc Login User / Returning JWT Token
 //@access Public
 router.post("/login", (req, res) => {
+  console.log("Request comming");
   //get validate msg
   const { errors, isValid } = validateLoginInput(req.body);
   //check vaidation

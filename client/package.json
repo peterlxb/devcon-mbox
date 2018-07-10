@@ -8,6 +8,7 @@
   },
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -44,6 +45,5 @@
   },
   "devDependencies": {
     "mini-css-extract-plugin": "^0.4.1"
-  },
-  "proxy": "http://localhost:5000"
+  }
 }
