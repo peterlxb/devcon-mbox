@@ -9,20 +9,20 @@ class AuthStore {
     this.user = user;
   }
 
-  registerUser(userData) {
-    reaction(
-      () => userData,
-      userData =>
-        window.fetch &&
-        fetch("/api/users/register", {
-          method: "post",
-          body: JSON.stringify({ userData }),
-          headers: new Headers({
-            "Content-Type": "application/json"
-          })
-        })
-    );
-  }
+  // registerUser(userData) {
+  //   reaction(
+  //     () => userData,
+  //     userData =>
+  //       window.fetch &&
+  //       fetch("/api/users/register", {
+  //         method: "post",
+  //         body: JSON.stringify({ userData }),
+  //         headers: new Headers({
+  //           "Content-Type": "application/json"
+  //         })
+  //       })
+  //   );
+  // }
 
   @action
   loginUser(userData) {

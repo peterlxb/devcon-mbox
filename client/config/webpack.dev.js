@@ -16,13 +16,11 @@ module.exports = {
   devServer: {
     publicPath: "/",
     contentBase: "./dist",
-    port: 9000,
     hot: true,
     historyApiFallback: true,
     proxy: {
       "/api": {
-        target: "http://127.0.0.1:5000",
-        pathRewrite: { "^/api": "" }
+        target: "http://127.0.0.1:5000"
       }
     }
   },
